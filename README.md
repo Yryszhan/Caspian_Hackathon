@@ -266,6 +266,7 @@ curl -X POST http://localhost:8000/api/decode \
 
 ## 10. Структура проекта
 
+
 ```
 Caspian_monitor/
 ├── backend/                      Серверная часть
@@ -282,12 +283,19 @@ Caspian_monitor/
 ├── frontend/                     Веб-панель оператора
 │   ├── index.html                Интерфейс: панель, история, карта, настройки
 │   └── api-bridge.js             Связующий слой с программным интерфейсом
+├── hardware/                     Аппаратная платформа и прошивка (Quazar Logic)
+│   ├── cad/                      3D-модель печатной платы (board_0.2.step)
+│   ├── hardware/                 Схемотехника и чертежи печатной платы (output.pdf)
+│   └── software/                 Прошивка STM32 (Makefile, CMSIS/HAL, linker scripts)
 ├── simulator/                    Эмулятор сети буёв
 │   ├── simulator.py              Формирование и передача кадров телеметрии
 │   └── Dockerfile
+├── mvp_hardware.png              Фотография рабочего прототипа (MVP)
+├── Quazar_logic_v4_image_1.png   3D-визуализация платы Quazar Logic v0.4 (top)
+├── Quazar_logic_v4_image2.png    3D-визуализация платы Quazar Logic v0.4 (bottom)
 ├── docker-compose.yml            Развёртывание одной командой
 ├── .env.example                  Образец файла конфигурации
-└── README.md
+└── README.md                     Документация проекта
 ```
 
 ---
@@ -441,10 +449,3 @@ python tests/test_codec.py
 
 Система питания: Широкий диапазон входного напряжения (поддержка LiFePO4 / солнечных батарей 12–24V) с высокоэффективным Buck-регулятором.
 
-## Hardware files
-
-Caspian_monitor/
-└── hardware/
-    ├── cad/         3D-модель печатной платы (STEP)
-    ├── hardware/    Схемотехника и чертежи печатной платы (PDF)
-    └── software/    Низкоуровневая прошивка STM32 (C/Assembly, Bare Metal / HAL)
