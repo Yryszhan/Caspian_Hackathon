@@ -1,0 +1,125 @@
+ARM GAS  /tmp/ccN26MHR.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"main.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.main,"ax",%progbits
+  16              		.align	1
+  17              		.global	main
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	main:
+  25              	.LFB65:
+  26              		.file 1 "Core/Src/main.c"
+   1:Core/Src/main.c **** #include "stm32f1xx.h"
+   2:Core/Src/main.c **** #include <delay.h>
+   3:Core/Src/main.c **** #include <gpio.h>
+   4:Core/Src/main.c **** 
+   5:Core/Src/main.c **** int main(){
+  27              		.loc 1 5 11 view -0
+  28              		.cfi_startproc
+  29              		@ Volatile: function does not return.
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+   6:Core/Src/main.c **** 
+   7:Core/Src/main.c ****   init_gpio_c();
+  37              		.loc 1 7 3 view .LVU1
+  38 0002 FFF7FEFF 		bl	init_gpio_c
+  39              	.LVL0:
+   8:Core/Src/main.c **** 
+   9:Core/Src/main.c ****   delay_init();
+  40              		.loc 1 9 3 view .LVU2
+  41 0006 FFF7FEFF 		bl	delay_init
+  42              	.LVL1:
+  10:Core/Src/main.c **** 
+  11:Core/Src/main.c ****   pinMode(GPIOC , 13 , OUTPUT);
+  43              		.loc 1 11 3 view .LVU3
+  44 000a 0122     		movs	r2, #1
+  45 000c 0D21     		movs	r1, #13
+  46 000e 0B48     		ldr	r0, .L4
+  47 0010 FFF7FEFF 		bl	pinMode
+ARM GAS  /tmp/ccN26MHR.s 			page 2
+
+
+  48              	.LVL2:
+  49              	.L2:
+  12:Core/Src/main.c **** 
+  13:Core/Src/main.c **** 
+  14:Core/Src/main.c **** while (1)
+  50              		.loc 1 14 1 discriminator 1 view .LVU4
+  15:Core/Src/main.c **** {
+  16:Core/Src/main.c ****  digitalWrite(GPIOC , 13 , HIGH);
+  51              		.loc 1 16 2 discriminator 1 view .LVU5
+  52 0014 094C     		ldr	r4, .L4
+  53 0016 0122     		movs	r2, #1
+  54 0018 0D21     		movs	r1, #13
+  55 001a 2046     		mov	r0, r4
+  56 001c FFF7FEFF 		bl	digitalWrite
+  57              	.LVL3:
+  17:Core/Src/main.c ****  delay(500);
+  58              		.loc 1 17 2 discriminator 1 view .LVU6
+  59 0020 4FF4FA70 		mov	r0, #500
+  60 0024 FFF7FEFF 		bl	delay
+  61              	.LVL4:
+  18:Core/Src/main.c ****  digitalWrite(GPIOC , 13 , LOW);
+  62              		.loc 1 18 2 discriminator 1 view .LVU7
+  63 0028 0022     		movs	r2, #0
+  64 002a 0D21     		movs	r1, #13
+  65 002c 2046     		mov	r0, r4
+  66 002e FFF7FEFF 		bl	digitalWrite
+  67              	.LVL5:
+  19:Core/Src/main.c ****  delay(200);
+  68              		.loc 1 19 2 discriminator 1 view .LVU8
+  69 0032 C820     		movs	r0, #200
+  70 0034 FFF7FEFF 		bl	delay
+  71              	.LVL6:
+  14:Core/Src/main.c **** {
+  72              		.loc 1 14 7 discriminator 1 view .LVU9
+  73 0038 ECE7     		b	.L2
+  74              	.L5:
+  75 003a 00BF     		.align	2
+  76              	.L4:
+  77 003c 00100140 		.word	1073811456
+  78              		.cfi_endproc
+  79              	.LFE65:
+  81              		.text
+  82              	.Letext0:
+  83              		.file 2 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+  84              		.file 3 "/usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h"
+  85              		.file 4 "Core/Inc/gpio.h"
+  86              		.file 5 "Core/Inc/delay.h"
+ARM GAS  /tmp/ccN26MHR.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+     /tmp/ccN26MHR.s:16     .text.main:0000000000000000 $t
+     /tmp/ccN26MHR.s:24     .text.main:0000000000000000 main
+     /tmp/ccN26MHR.s:77     .text.main:000000000000003c $d
+
+UNDEFINED SYMBOLS
+init_gpio_c
+delay_init
+pinMode
+digitalWrite
+delay
